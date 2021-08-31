@@ -1,61 +1,22 @@
 <script setup lang="ts">
-import { useUserStore } from '~/stores/user'
 
-const user = useUserStore()
-const name = ref(user.savedName)
-
-const router = useRouter()
-const go = () => {
-  if (name.value)
-    router.push(`/hi/${encodeURIComponent(name.value)}`)
-}
-
-const { t } = useI18n()
+// const { t } = useI18n()
 </script>
 
 <template>
-  <div>
-    <p class="text-4xl">
-      <carbon-campsite class="inline-block" />
+  <div class="text-left max-w-5xl mx-auto z-10">
+    <h1 class="text-5xl font-semibold py-10">
+      Lacordaire bilingual school blog
+    </h1>
+    <div class="border-black border-t-2 w-10 py-5"></div>
+    <p class="w-1/2 text-lg">
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam justo dui, tincidunt quis arcu vel, suscipit auctor metus. Nunc eleifend elit vitae mauris volutpat, ut efficitur neque pretium
     </p>
-    <p>
-      <a rel="noreferrer" href="https://github.com/antfu/vitesse" target="_blank">
-        Vitesse
-      </a>
-    </p>
-    <p>
-      <em class="text-sm opacity-75">{{ t('intro.desc') }}</em>
-    </p>
-
-    <div class="py-4" />
-
-    <input
-      id="input"
-      v-model="name"
-      :placeholder="t('intro.whats-your-name')"
-      :aria-label="t('intro.whats-your-name')"
-      type="text"
-      autocomplete="false"
-      @keydown.enter="go"
-      p="x-4 y-2"
-      w="250px"
-      text="center"
-      bg="transparent"
-      border="~ rounded gray-200 dark:gray-700"
-      outline="none active:none"
-    >
-    <label class="hidden" for="input">{{ t('intro.whats-your-name') }}</label>
-
-    <div>
-      <button
-        class="m-3 text-sm btn"
-        :disabled="!name"
-        @click="go"
-      >
-        {{ t('button.go') }}
-      </button>
-    </div>
+    <button class="rounded-full my-12 py-1.5 px-8 bg-gray-900 hover:bg-yellow-500 text-white font-semibold transition-all">
+      read us!
+    </button>
   </div>
+  <img src="../assets/circle.svg" alt="" class="absolute -right-32 bottom-1 h-3/4 opacity-50 z-0">
 </template>
 
 <route lang="yaml">
